@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Love</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc0cb;
+      font-family: 'Quicksand', sans-serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .container, .envelope, .letter-container, .final-message, .flower-part {
+      display: none;
+      max-width: 700px;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      font-size: 16px;
+      line-height: 1.6;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    .visible {
+      display: block;
+    }
+
+    button {
+      background-color: #e06666;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #f08080;
+    }
+
+    img {
+      max-width: 100px;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .question {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    audio {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- GREETING -->
+  <div class="container visible" id="greeting">
+    <h2>Hello my loveee 💖</h2>
+    <p>How's your day? Open this — I have a little surprise for you!</p>
+    <button onclick="showEnvelope()">Yes!</button>
+  </div>
+
+  <!-- ENVELOPE -->
+  <div class="envelope" id="envelope">
+    <p>Click to open your surprise ✉️</p>
+    <img src="envelope.png" alt="Envelope" onclick="showLetter()" style="cursor: pointer;">
+  </div>
+
+  <!-- LETTER -->
+  <div class="letter-container" id="letter">
+    <p>
+      I just want to say how truly thankful I am for you.
+      For every good thing you've done for me — for taking care of me, for loving me so completely, and for being patient even on the days I struggle to love myself.
+    </p>
+    <p>
+      You deserve this flower — not just any flower, but one full of love, warmth, and everything beautiful, just like your soul.
+    </p>
+    <p>
+      You are my safe place. My home. And in every choice you make, please know that I am — and always will be — your first and biggest supporter.
+    </p>
+    <p>
+      Here's a flower that will never wither, just like my love for you.
+    </p>
+    <p>
+      Thank you for making love feel like peace.<br>
+      Thank you for existing.
+    </p>
+    <p>Forever yours, <br> LOVE 🌸</p>
+
+    <div class="question">Do you wanna go next?</div>
+    <button onclick="showFinal()">Yes!</button>
+  </div>
+
+  <!-- FINAL MESSAGE -->
+  <div class="final-message" id="final">
+    <p><em>"Whenever you feel tired or unsure, come back here. This is your reminder that you're deeply loved."</em></p>
+    <p>— LOVE</p>
+    <button onclick="showFlower()">Show the flower</button>
+  </div>
+
+  <!-- FLOWER + MUSIC -->
+  <div class="flower-part" id="flowerPart">
+    <p>Here is the flower for you, my love 🌻</p>
+    <img src="sunflower.png" alt="Sunflower">
+  </div>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="mymusic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+
+    function showEnvelope() {
+      document.getElementById("greeting").classList.remove("visible");
+      document.getElementById("envelope").classList.add("visible");
+      music.play();
+    }
+
+    function showLetter() {
+      document.getElementById("envelope").classList.remove("visible");
+      document.getElementById("letter").classList.add("visible");
+    }
+
+    function showFinal() {
+      document.getElementById("letter").classList.remove("visible");
+      document.getElementById("final").classList.add("visible");
+    }
+
+    function showFlower() {
+      document.getElementById("final").classList.remove("visible");
+      document.getElementById("flowerPart").classList.add("visible");
+    }
+  </script>
+
+</body>
+</html>
